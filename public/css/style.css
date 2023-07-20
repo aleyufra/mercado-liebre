@@ -49,6 +49,11 @@ header {
 
 header p {
     text-align: center;
+    line-height: 42px;
+}
+
+nav ul {
+    padding-bottom: 10px;
 }
 
 nav ul li {
