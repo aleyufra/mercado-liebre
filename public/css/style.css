@@ -196,7 +196,8 @@ main {
 
 .articulo-container {
     background-color: var(--grisClaro);
-    /* border: 1px solid blue; */
+    /* border: 1px solid green; */
+    padding: 14px;
     margin-bottom: 10px;
     display: flex;
     align-items: stretch;
