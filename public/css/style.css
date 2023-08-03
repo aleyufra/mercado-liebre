@@ -44,7 +44,7 @@ h2 {
     font-size: 16px;
     text-align: left;
     color: #666;
-    display: none;
+    visibility: hidden;
 }
 
 /* HEADER */
@@ -206,13 +206,33 @@ main {
 
 .articulo {
     /* border: 1px solid red; */
-    overflow: hidden;
     padding: 10px;
     background-color: #ffffff;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    transition: all 0.85s ease;
     /* justify-content: space-between; */
+}
+
+.articulo:hover {
+    box-shadow: 0px 0px 10px 2px rgba(100, 100, 100, 0.35);
+}
+
+.articulo:hover .descripciones {
+    /* padding: 0px 0px 6px 0px; */
+    background-color: #FFF;
+    visibility: visible;
+    position: relative;
+}
+
+.fa-truck {
+    transition: all 0.45s ease;
+}
+
+.articulo:hover .fa-truck {
+    transform: rotate(-90deg);
 }
 
 .articulo-info {
@@ -256,16 +276,46 @@ main {
 footer {
     text-align: center;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
 }
 
-footer div {
+.footer-info {
     padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-info-item {
+    max-width: 450px;
+}
+
+.footer-info-item h4 {
+    padding-bottom: 8px;
+}
+
+.copyright {
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 10px;
 }
 
 footer i {
     font-size: 2em;
     margin-bottom: 10px;
     color: var(--celeste);
+    transition: all 0.35s ease-in-out;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+footer i:hover {
+    color: #fff;
+    background-color: var(--celeste);
 }
 
 /* FIN FOOTER */
@@ -364,10 +414,11 @@ footer i {
     margin: 5px 0px 15px 0px;
     font-size: 16px;
     cursor: pointer;
+    transition: all 0.45s ease;
 }
 
 .formulario button:hover {
-    background-color: var(--azul);
+    background-color: #0022AA;
     color: #dedede;
     box-shadow: 0px 0px 4px 0px #333;
 }
@@ -407,14 +458,6 @@ footer i {
         padding: 8px;
     }
 
-    .descripciones {
-        display: block;
-    }
-
-    .articulo {
-        box-shadow: 0px 0px 10px 2px rgba(100, 100, 100, 0.35);
-    }
-
     .formulario {
         max-width: 450px;
     }
@@ -425,7 +468,7 @@ footer i {
 
     main {
         padding: 30px 0px 50px 0px;
-        min-height: 65vh;
+        min-height: 60vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -435,6 +478,10 @@ footer i {
 
 /* navegacion en desktop */
 @media (min-width: 839px) {
+    main {
+        min-height: 70vh;
+    }
+
     .logo {
         text-align: left;
     }
@@ -484,11 +531,21 @@ footer i {
     .articulo-container {
         width: 25%;
         padding: 8px;
+        /* max-height: 365px; */
     }
 }
 
 @media (min-width: 450px) {
     .formulario button {
         width: auto;
+    }
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-90deg);
     }
 }
