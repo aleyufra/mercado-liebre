@@ -213,7 +213,6 @@ main {
     flex-direction: column;
     position: relative;
     transition: all 0.85s ease;
-    /* justify-content: space-between; */
 }
 
 .articulo:hover {
