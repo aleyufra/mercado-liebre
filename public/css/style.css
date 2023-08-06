@@ -16,6 +16,7 @@
 
 body {
     background-color: var(--grisClaro);
+    margin-top: 248px;
 }
 
 p {
@@ -50,11 +51,18 @@ h2 {
     visibility: hidden;
 }
 
+
 /* HEADER */
 
 header {
     background-color: var(--amarillo);
     padding: 20px;
+    position: fixed;
+    z-index: 100;
+    height: 248px;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 header p {
@@ -91,8 +99,17 @@ header p {
     max-width: 500px;
 }
 
-#buscador:focus {
-    outline: 4px solid hsla(216, 99%, 54%, 0.517);
+
+
+body input, #buscador {
+    transition: outline 0.05s ease-in-out;
+    outline: none;
+    border: none;
+}
+
+body input:focus, #buscador:focus {
+    border: none;
+    outline: 4px solid hsla(216, 100%, 72%, 0.517);
 }
 
 .nav-header .navegacion button {
@@ -109,6 +126,7 @@ header p {
 }
 
 .logo {
+    display: block;
     max-width: fit-content;
     margin-bottom: 10px;
     text-align: center;
@@ -116,6 +134,7 @@ header p {
 
 .logo img {
     max-width: 200px;
+    width: 100%;
 }
 
 .banner-img {
@@ -456,6 +475,11 @@ footer i:hover {
 @media (min-width: 391px) {
     header {
         padding: 20px 20px 10px 20px;
+        height: 225px;
+    }
+
+    body {
+        margin-top: 225px;
     }
 
     .nav-header .logo {
@@ -506,6 +530,14 @@ footer i:hover {
 
 /* navegacion en desktop */
 @media (min-width: 839px) {
+    header {
+        max-height: 125px;
+    }
+
+    body {
+        margin-top: 125px;
+    }
+    
     main {
         min-height: 70vh;
     }
@@ -534,6 +566,7 @@ footer i:hover {
 
     .nav-header {
         justify-content: space-between;
+        flex-wrap: nowrap;
     }
 
     .nav-header .logo {
@@ -545,6 +578,7 @@ footer i:hover {
         /* border: 1px solid violet; */
         width: 33%;
         text-align: center;
+        padding: 0px 0px 0px 20px;
     }
 
     .navegacion input {
@@ -556,7 +590,7 @@ footer i:hover {
         text-align: right;
         display: flex;
         align-items: flex-start;
-        padding-top: 10px;
+        padding: 10px 0px 0px 15px;
     }
 
     .nav-descripcion p {
