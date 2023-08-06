@@ -16,6 +16,7 @@
 
 body {
     background-color: var(--grisClaro);
+    margin-top: 248px;
 }
 
 p {
@@ -26,18 +27,21 @@ h2 {
     font-size: 24px;
 }
 
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
 .precios {
     font-size: 18px;
     font-weight: bold;
     text-align: left;
-    margin-bottom: 5px;
 }
 
 .descuentos {
     font-size: 16px;
     color: var(--verde);
     text-align: left;
-    margin-bottom: 15px;
 }
 
 .descripciones {
@@ -47,11 +51,18 @@ h2 {
     visibility: hidden;
 }
 
+
 /* HEADER */
 
 header {
     background-color: var(--amarillo);
     padding: 20px;
+    position: fixed;
+    z-index: 100;
+    height: 248px;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 header p {
@@ -74,41 +85,60 @@ header p {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 8px;
     flex-wrap: nowrap;
 }
 
 .nav-header .navegacion input {
     padding: 8px;
-    border-radius: 7px;
+    border-radius: 3px;
     outline: none;
     border: none;
-    margin-right: 5px;
+    margin-right: 10px;
     min-width: 50px;
     width: 100%;
     max-width: 500px;
 }
 
+
+
+body input, #buscador {
+    transition: outline 0.05s ease-in-out;
+    outline: none;
+    border: none;
+}
+
+body input:focus, #buscador:focus {
+    border: none;
+    outline: 4px solid hsla(216, 100%, 72%, 0.517);
+}
+
 .nav-header .navegacion button {
     padding: 8px;
     background-color: #fff;
-    border-radius: 7px;
+    border-radius: 3px;
     outline: none;
     border: none;
     cursor: pointer;
 }
 
+.nav-header .navegacion button:hover {
+    background-color: #dedede;
+}
+
 .logo {
-    width: 100%;
+    display: block;
+    max-width: fit-content;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .logo img {
     max-width: 200px;
+    width: 100%;
 }
 
 .banner-img {
+    display: block !important;
     width: 100%;
     min-height: 130px;
     max-height: 250px;
@@ -139,18 +169,20 @@ nav ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .nav-descripcion p {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
     text-align: center;
     color: #000;
-    line-height: 1.5rem;
+    line-height: 1.2rem;
 }
 
 .nav-descripcion p i {
-    margin-right: 6px;
+    margin-right: 2px;
 }
 
 .burger-menu {
@@ -206,17 +238,18 @@ main {
 
 .articulo {
     /* border: 1px solid red; */
-    padding: 10px;
+    padding: 14px;
     background-color: #ffffff;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: all 0.85s ease;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
 }
 
 .articulo:hover {
-    box-shadow: 0px 0px 10px 2px rgba(100, 100, 100, 0.35);
+    box-shadow: 0px 5px 16px 0px rgba(173, 173, 173, 0.35);
 }
 
 .articulo:hover .descripciones {
@@ -226,8 +259,16 @@ main {
     position: relative;
 }
 
+.articulo-precio {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
 .fa-truck {
-    transition: all 0.45s ease;
+    transition: all 0.55s ease-in-out;
 }
 
 .articulo:hover .fa-truck {
@@ -241,7 +282,7 @@ main {
 }
 
 .articulo-img-container {
-    border-bottom: 1px solid #39b54a;
+    border-bottom: 1px solid var(--grisOscuro);
     position: relative;
     margin-bottom: 20px;
 }
@@ -252,7 +293,7 @@ main {
     padding: 5px;
     width: 30px;
     height: 30px;
-    border: 1px solid #39b54a;
+    border: 1px solid var(--grisOscuro);
     color: #39b54a;
     background-color: #FFF;
     border-radius: 50%;
@@ -285,12 +326,14 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .footer-info-item {
-    max-width: 450px;
+    width: 150px;
+    max-width: 300px;
+    flex-grow: 1;
 }
 
 .footer-info-item h4 {
@@ -432,6 +475,11 @@ footer i:hover {
 @media (min-width: 391px) {
     header {
         padding: 20px 20px 10px 20px;
+        height: 225px;
+    }
+
+    body {
+        margin-top: 225px;
     }
 
     .nav-header .logo {
@@ -446,6 +494,7 @@ footer i:hover {
     .nav-header .navegacion {
         /* border: 1px solid violet; */
         width: 100%;
+        margin-bottom: 10px;
     }
 
     .nav-descripcion {
@@ -472,11 +521,23 @@ footer i:hover {
         justify-content: center;
         align-items: center;
     }
+
+    #buscador {
+        max-width: 350px;
+    }
 }
 
 
 /* navegacion en desktop */
 @media (min-width: 839px) {
+    header {
+        max-height: 125px;
+    }
+
+    body {
+        margin-top: 125px;
+    }
+    
     main {
         min-height: 70vh;
     }
@@ -491,7 +552,7 @@ footer i:hover {
     }
 
     nav ul li {
-        padding: 0px 12px;
+        padding-left: 12px;
         white-space: nowrap;
     }
 
@@ -503,6 +564,11 @@ footer i:hover {
         display: none;
     }
 
+    .nav-header {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
     .nav-header .logo {
         /* border: 1px solid violet; */
         width: 33%;
@@ -512,6 +578,7 @@ footer i:hover {
         /* border: 1px solid violet; */
         width: 33%;
         text-align: center;
+        padding: 0px 0px 0px 20px;
     }
 
     .navegacion input {
@@ -519,12 +586,16 @@ footer i:hover {
     }
 
     .nav-descripcion {
-        width: 33%;
-        text-align: center;
+        max-width: fit-content;
+        text-align: right;
+        display: flex;
+        align-items: flex-start;
+        padding: 10px 0px 0px 15px;
     }
 
     .nav-descripcion p {
         font-size: 18px;
+        font-weight: normal;
     }
 
     .articulo-container {
